@@ -70,7 +70,9 @@ private void fromNetwork(String endpoint) {
 https://id.linkedin.com/in/anna-arthdi-putra-2b339436 - automatic!
 Anna arthdi putra
 ```
-[Ridho Fajar Darmawan] (https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
+[Ridho Fajar Darmawan] (http://github.com)
+
+(https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
 
 ## License
 ```
