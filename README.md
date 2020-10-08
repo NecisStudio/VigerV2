@@ -74,6 +74,10 @@ Anna arthdi putra
 https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155 - automatic!
 Ridho Fajar Darmawan
 ```
+
+http://github.com - automatic!
+[GitHub](http://github.com)
+
 ## License
 ```
     Copyright (C) 2020  Arthdi putra anna
