@@ -65,18 +65,12 @@ private void fromNetwork(String endpoint) {
     }
 ```
 ## Contributor
-```
+* Anna arthdi putra [Linkedin](https://id.linkedin.com/in/anna-arthdi-putra-2b339436)
+* Ridho Fajar Darmawan [Linkedin](https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
 
-https://id.linkedin.com/in/anna-arthdi-putra-2b339436 - automatic!
-Anna arthdi putra
-```
-```
-https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155 - automatic!
-Ridho Fajar Darmawan
-```
 ## License
 ```
-    Copyright (C) 2020  Arthdi putra anna
+    Copyright (C) 2020  Necis Studio
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
