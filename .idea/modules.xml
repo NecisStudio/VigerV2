@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Viger_View_Pager_PDF_OpenSource.iml" filepath="$PROJECT_DIR$/Android-Viger_View_Pager_PDF_OpenSource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PDFVigerLib/PDFVigerLib.iml" filepath="$PROJECT_DIR$/PDFVigerLib/PDFVigerLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project-Viger-PDF.iml" filepath="$PROJECT_DIR$/.idea/modules/Project-Viger-PDF.iml" group="Viger-PDF" />
+      <module fileurl="file://$PROJECT_DIR$/SampleViger/SampleViger.iml" filepath="$PROJECT_DIR$/SampleViger/SampleViger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Viger-PDF.iml" filepath="$PROJECT_DIR$/Viger-PDF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PDFVigerLib/Viger-PDF-PDFVigerLib.iml" filepath="$PROJECT_DIR$/.idea/modules/PDFVigerLib/Viger-PDF-PDFVigerLib.iml" group="Viger-PDF/PDFVigerLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SampleViger/Viger-PDF-SampleViger.iml" filepath="$PROJECT_DIR$/.idea/modules/SampleViger/Viger-PDF-SampleViger.iml" group="Viger-PDF/SampleViger" />
+      <module fileurl="file://$PROJECT_DIR$/PDFCreateLib/pdfcreatelib.iml" filepath="$PROJECT_DIR$/PDFCreateLib/pdfcreatelib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vigerpdf.iml" filepath="$PROJECT_DIR$/.idea/modules/vigerpdf.iml" group="vigerpdf" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PDFVigerLib/vigerpdf-PDFVigerLib.iml" filepath="$PROJECT_DIR$/.idea/modules/PDFVigerLib/vigerpdf-PDFVigerLib.iml" group="vigerpdf/PDFVigerLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SampleViger/vigerpdf-SampleViger.iml" filepath="$PROJECT_DIR$/.idea/modules/SampleViger/vigerpdf-SampleViger.iml" group="vigerpdf/SampleViger" />
+    </modules>
+  </component>
+</project>
