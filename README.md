@@ -66,8 +66,9 @@ private void fromNetwork(String endpoint) {
 ```
 ## Contributor
 ```
-- [x] Anna arthdi putra [Linkedin](https://id.linkedin.com/in/anna-arthdi-putra-2b339436)
-- [x] Ridho Fajar Darmawan [Linkedin](https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
+Anna arthdi putra [Linkedin](https://id.linkedin.com/in/anna-arthdi-putra-2b339436)
+
+Ridho Fajar Darmawan [Linkedin](https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
 ```
 
 ## License
