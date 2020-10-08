@@ -13,7 +13,7 @@ Gradle:
 ```
 ```
 dependencies {
-	        implementation 'com.github.aerdy:Viger-PDF:1.2'
+	       implementation 'com.github.NecisStudio:VigerV2:2.0'
 	}
 
 ```
