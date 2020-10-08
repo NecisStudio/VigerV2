@@ -64,7 +64,16 @@ private void fromNetwork(String endpoint) {
         });
     }
 ```
+## Contributor
+```
 
+https://id.linkedin.com/in/anna-arthdi-putra-2b339436 - automatic!
+Anna arthdi putra
+```
+```
+https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155 - automatic!
+Ridho Fajar Darmawan
+```
 ## License
 ```
     Copyright (C) 2020  Arthdi putra anna
