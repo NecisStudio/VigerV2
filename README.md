@@ -13,7 +13,7 @@ Gradle:
 ```
 ```
 dependencies {
-	       implementation 'com.github.NecisStudio:VigerV2:2.0'
+	       implementation 'com.github.NecisStudio:VigerV2:2.1'
 	}
 
 ```
