@@ -61,6 +61,24 @@ private void fromNetwork(String endpoint) {
                 VigerAdapter adapter = new VigerAdapter(getApplicationContext(),data);
                 viewPager.setAdapter(adapter);
             }
+            @Override
+            public void progressData(int progress) {
+                Log.e("data", "" + progress);
+
+            }
+
+            @Override
+            public void failed(Throwable t) {
+                Log.e("error", " : " + t.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onComplete() {
+                progressDialog.dismiss();
+                adapterV2.notifyDataSetChanged();
+            }
         });
     }
 ```
