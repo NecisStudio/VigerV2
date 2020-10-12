@@ -139,35 +139,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    private void fromNetwork(String endpoint) {
-//        itemData.clear();
-//        adapter.notifyDataSetChanged();
-//        vigerPDF.cancel();
-//        vigerPDF.initFromNetwork(endpoint, new OnResultListener() {
-//            @Override
-//            public void resultData(Bitmap data) {
-//                Log.e("data", "run");
-//                itemData.add(data);
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void progressData(int progress) {
-//                Log.e("data", "" + progress);
-//            }
-//
-//            @Override
-//            public void failed(Throwable t) {
-//
-//            }
-//
-//            @Override
-//            public void onComplete() {
-//
-//            }
-//
-//        });
-//    }
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void fromNetwork(String endpoint) {
+        itemDataV2.clear();
+        adapterV2.notifyDataSetChanged();
+        vigerPDFV2.cancel();
+        vigerPDFV2.initFromNetwork(endpoint, new OnResultListenerV2() {
+            @Override
+            public void resultData(byte[] data) {
+                Log.e("data", "run");
+                itemDataV2.add(data);
+                adapterV2.notifyDataSetChanged();
+            }
+
+            @Override
+            public void progressData(int progress) {
+                Log.e("data", "" + progress);
+            }
+
+            @Override
+            public void failed(Throwable t) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+
+        });
+    }
 
     private void fromFile(String path) {
         final ProgressDialog progressDialog =  new ProgressDialog(this);
@@ -228,6 +229,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void failed(Throwable t) {
+                Log.e("error", " : " + t.getMessage());
+                progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
@@ -240,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDestroy() {
         super.onDestroy();

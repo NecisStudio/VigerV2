@@ -11,11 +11,21 @@ import android.os.Build;
 import android.os.PersistableBundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Base64;
 
 import com.necistudio.vigerpdf.manage.JobRenderPDF;
 import com.necistudio.vigerpdf.manage.OnResultListenerV2;
+import com.necistudio.vigerpdf.network.RestClient;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class VigerPDFv2 {
     int JOB_ID = 100;
@@ -56,7 +66,21 @@ public class VigerPDFv2 {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public void initFromFile(File file, OnResultListenerV2 resultListener){
+    public void initFromNetwork(String endpoint, OnResultListenerV2 resultListener){
+        onResultListener = resultListener;
+
+        PersistableBundle bundle = new PersistableBundle();
+        bundle.putString("endpoint", endpoint);
+        bundle.putInt("type", 1);
+
+        ComponentName componentName = new ComponentName(context, JobRenderPDF.class);
+        JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, componentName).setExtras(bundle);
+        assert jobScheduler != null;
+        jobScheduler.schedule(builder.build());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void initFromFile(File file, OnResultListenerV2 resultListener) {
         onResultListener = resultListener;
 
         PersistableBundle bundle = new PersistableBundle();

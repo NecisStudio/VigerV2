@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.necistudio.pdfengineme"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -22,12 +22,14 @@ repositories {
     maven { url  "http://dl.bintray.com/lukaville/maven"}
 }
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.4.0'
-    testCompile 'junit:junit:4.12'
-    compile 'com.nbsp:library:1.1'
-    compile project(':PDFVigerLib')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support:design:25.4.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.nbsp:library:1.1'
+    implementation project(':PDFVigerLib')
 }
