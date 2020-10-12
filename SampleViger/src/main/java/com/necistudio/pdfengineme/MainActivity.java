@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 itemDataV2.clear();
                 adapterV2.notifyDataSetChanged();
-                //fromNetwork("http://www.pdf995.com/samples/pdf.pdf");
+                fromNetwork("http://www.pdf995.com/samples/pdf.pdf");
             }
         });
         itemDataV2 = new ArrayList<>();
@@ -102,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void fromNetwork(String endpoint) {
+        final ProgressDialog progressDialog =  new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
         itemDataV2.clear();
         adapterV2.notifyDataSetChanged();
         vigerPDFV2.cancel();
@@ -110,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             public void resultData(byte[] data) {
                 Log.e("data", "run");
                 itemDataV2.add(data);
-                adapterV2.notifyDataSetChanged();
             }
 
             @Override
@@ -120,12 +123,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void failed(Throwable t) {
-
+                Log.e("error", " : " + t.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onComplete() {
-
+                progressDialog.dismiss();
+                adapterV2.notifyDataSetChanged();
             }
 
         });

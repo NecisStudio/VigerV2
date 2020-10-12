@@ -43,9 +43,27 @@ dependencies {
 private void fromNetwork(String endpoint) {
         new VigerPDF(this, endpoint).initFromFile(new OnResultListener() {
             @Override
-            public void resultData(ArrayList<Bitmap> data) {
-                VigerAdapter adapter = new VigerAdapter(getApplicationContext(),data);
-                viewPager.setAdapter(adapter);
+            public void resultData(byte[] data) {
+                Log.e("data", "run");
+                itemDataV2.add(data);
+            }
+
+            @Override
+            public void progressData(int progress) {
+                Log.e("data", "" + progress);
+            }
+
+            @Override
+            public void failed(Throwable t) {
+                Log.e("error", " : " + t.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onComplete() {
+                progressDialog.dismiss();
+                adapterV2.notifyDataSetChanged();
             }
         });
     }
@@ -83,7 +101,7 @@ private void fromNetwork(String endpoint) {
     }
 ```
 ## Contributor
-* Anna arthdi putra [Linkedin](https://id.linkedin.com/in/anna-arthdi-putra-2b339436)
+* Anna Arthdi Putra [Linkedin](https://id.linkedin.com/in/anna-arthdi-putra-2b339436)
 * Ridho Fajar Darmawan [Linkedin](https://id.linkedin.com/in/ridho-fajar-darmawan-54913b155)
 
 ## License
