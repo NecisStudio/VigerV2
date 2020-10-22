@@ -2,7 +2,6 @@ package com.necistudio.pdfengineme;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
@@ -15,11 +14,8 @@ import android.widget.Toast;
 
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
-import com.necistudio.vigerpdf.VigerPDF;
 import com.necistudio.vigerpdf.VigerPDFv2;
-import com.necistudio.vigerpdf.adapter.VigerAdapter;
 import com.necistudio.vigerpdf.adapter.VigerAdapterV2;
-import com.necistudio.vigerpdf.manage.OnResultListener;
 import com.necistudio.vigerpdf.manage.OnResultListenerV2;
 import com.necistudio.vigerpdf.utils.ViewPagerZoomHorizontal;
 
@@ -34,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private VigerAdapterV2 adapterV2;
     private Button btnFromFile, btnFromNetwork,btnCancle;
     private VigerPDFv2 vigerPDFV2;
+    private String urlEpub = "http://files.infogridpacific.com/epub3/famouspaintings.epub";
+    private String urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 itemDataV2.clear();
                 adapterV2.notifyDataSetChanged();
-                fromNetwork("http://www.pdf995.com/samples/pdf.pdf");
+                fromNetwork(urlEpub);
             }
         });
         itemDataV2 = new ArrayList<>();

@@ -14,11 +14,14 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Base64;
+import android.util.Log;
 
 import com.necistudio.pdfvigerengine.R;
 import com.necistudio.vigerpdf.VigerPDFv2;
 import com.necistudio.vigerpdf.core.MuPDFCore;
 import com.necistudio.vigerpdf.network.RestClient;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -64,13 +67,13 @@ public class JobRenderPDF extends JobService {
         return false;
     }
 
-    private void downloadFile(String endPoint, final JobParameters jobParameters) {
+    private void downloadFile(final String endPoint, final JobParameters jobParameters) {
         RestClient.ApiInterface client = RestClient.getClient();
         Call<ResponseBody> call = client.streamFile(endPoint);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                writeToDisk(response.body(), jobParameters);
+                writeToDisk(endPoint,response.body(), jobParameters);
             }
 
             @Override
@@ -81,7 +84,7 @@ public class JobRenderPDF extends JobService {
         });
     }
 
-    private void writeToDisk(final ResponseBody body,final JobParameters jobParameters) {
+    private void writeToDisk(final String endpoint,final ResponseBody body,final JobParameters jobParameters) {
         disposable.clear();
         disposable.add((Disposable) Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
@@ -125,7 +128,8 @@ public class JobRenderPDF extends JobService {
 
                     @Override
                     public void onComplete() {
-                        MuPDFCore core = new MuPDFCore(filePath, "pdf");
+                        String formate = FilenameUtils.getExtension(endpoint);
+                        MuPDFCore core = new MuPDFCore(filePath, formate);
                         renderPDF(core, jobParameters);
                     }
                 }));
@@ -142,7 +146,7 @@ public class JobRenderPDF extends JobService {
                         int width = (int) core.getPageSize(i).x;
                         int height = (int) core.getPageSize(i).y;
                         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, new ByteArrayOutputStream());
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 80, new ByteArrayOutputStream());
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB &&
                                 Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -160,7 +164,7 @@ public class JobRenderPDF extends JobService {
                         }
 
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 80, baos);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
                         byte[] bytes = baos.toByteArray();
                         e.onNext(bytes);
                         bitmap.recycle();
